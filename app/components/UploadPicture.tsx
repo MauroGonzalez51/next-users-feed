@@ -1,3 +1,5 @@
+"use client";
+
 import { ChangeEvent, MouseEvent, useRef, useState, useEffect } from "react";
 import { FaCamera } from "react-icons/fa6";
 
@@ -26,9 +28,7 @@ export function UploadPicture() {
         const container = containerRef.current;
 
         if (container) {
-            container.style.backgroundImage = imageUrl
-                ? `url(${imageUrl})`
-                : "none";
+            container.style.backgroundImage = imageUrl ? `url(${imageUrl})` : "none";
         }
     }, [imageUrl]);
 

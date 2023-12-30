@@ -55,26 +55,28 @@ function RegisterPage() {
     };
 
     return (
-        <div className="py-24 md:p-24 flex justify-center items-center">
+        <div className="py-12 md:py-24 flex justify-center items-center">
             <form
                 className="gap-8 flex justify-center items-center flex-col flex-grow"
                 onSubmit={handleSubmit}
             >
                 <UploadPicture />
-                <div className="flex flex-col flex-wrap gap-8 items-center w-[70%] md:w-[50%]">
+                <div className="flex flex-col flex-wrap gap-8 items-center w-full">
                     <Input
                         type="text"
                         placeholder="Nombre de usuario"
                         name="username"
                         autoComplete="off"
+                        className="max-w-[70%] 2xl:max-w-[50%]"
                     />
                     <Input
                         type="text"
                         placeholder="Descripcion"
                         name="description"
                         autoComplete="off"
+                        className="max-w-[70%] 2xl:max-w-[50%]"
                     />
-                    <Button>Register</Button>
+                    <Button className="max-w-[70%] 2xl:max-w-[50%]">Register</Button>
                 </div>
             </form>
         </div>

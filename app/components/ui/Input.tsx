@@ -8,7 +8,7 @@ export function Input({ className, ...inputProps }: InputProps) {
         <input
             {...inputProps}
             className={twMerge(
-                "p-4 rounded-md text-black outline-none placeholder:italic border border-solid border-gray-800  flex-grow w-full",
+                "p-4 rounded-md text-black outline-none placeholder:italic border border-solid border-gray-800 flex-grow w-full",
                 className,
             )}
         />
