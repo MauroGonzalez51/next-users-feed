@@ -41,7 +41,7 @@ export function UploadPicture() {
                 onClick={handleClick}
                 ref={containerRef}
             >
-                {!imageUrl && <FaCamera className="text-5xl" />}
+                {!imageUrl && <FaCamera className="text-5xl text-white" />}
                 <input
                     type="file"
                     hidden
