@@ -1,9 +1,10 @@
-import { db, storage } from "@/app/config";
-import { getDownloadURL, ref, uploadBytes } from "firebase/storage";
+import { firebaseApp } from "@/app/config";
+import { getDownloadURL, getStorage, ref, uploadBytes } from "firebase/storage";
 import { User } from "@/app/lib/definitions";
-import { addDoc, collection } from "firebase/firestore";
+import { addDoc, collection, getFirestore } from "firebase/firestore";
 
 const uploadImage = async (file: File): Promise<string> => {
+    const storage = getStorage(firebaseApp);
     const storageRef = ref(storage, `images/${file.name}`);
     await uploadBytes(storageRef, file);
 
@@ -13,11 +14,16 @@ const uploadImage = async (file: File): Promise<string> => {
 
 const addUser = async (user: User) => {
     try {
+        const db = getFirestore(firebaseApp);
+
         const imageURL = await uploadImage(user.imageFile);
 
-        const newUser: User = { ...user, imageURL };
+        let { imageFile: _, ...newUser } = user;
+
+        newUser = { ...newUser, imageURL };
 
         const usersCollection = collection(db, "users");
+
         const docRef = await addDoc(usersCollection, newUser);
 
         console.log(`User added with id: ${docRef.id}`);

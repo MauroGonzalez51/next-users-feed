@@ -1,5 +1,3 @@
-"use client";
-
 import { ChangeEvent, MouseEvent, useRef, useState, useEffect } from "react";
 import { FaCamera } from "react-icons/fa6";
 

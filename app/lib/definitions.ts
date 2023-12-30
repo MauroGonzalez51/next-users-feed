@@ -1,6 +1,6 @@
 export interface User {
     username: string;
     description: string;
-    imageURL: string;
+    imageURL?: string;
     imageFile: File;
 }
