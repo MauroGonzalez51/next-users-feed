@@ -16,11 +16,17 @@ const addUser = async (user: User) => {
     try {
         const db = getFirestore(firebaseApp);
 
-        const imageURL = await uploadImage(user.imageFile);
+        if (!user.image.file) return;
 
-        let { imageFile: _, ...newUser } = user;
+        const imageURL = await uploadImage(user.image.file);
 
-        newUser = { ...newUser, imageURL };
+        delete user.image.file;
+
+        const newUser: User = {
+            username: user.username,
+            description: user.description,
+            image: { url: imageURL },
+        };
 
         const usersCollection = collection(db, "users");
 

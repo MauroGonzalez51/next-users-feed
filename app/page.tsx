@@ -1,6 +1,19 @@
+import { Post } from "@/app/components/Post";
+import { User } from "@/app/lib/definitions";
+
 function Home() {
+    const user: User = {
+        username: "Mauro",
+        description: "Picture",
+        image: {
+            url: "/imagen.avif",
+        },
+    };
+
     return (
-        <main className="flex min-h-screen flex-col items-center justify-between"></main>
+        <main className="h-screen w-full lg:w-[60%]">
+            <Post user={user}/>
+        </main>
     );
 }
 

@@ -43,7 +43,7 @@ function RegisterPage() {
         const user: User = {
             username: username.value,
             description: description.value,
-            imageFile: file,
+            image: { file },
         };
 
         addUser(user);
@@ -55,7 +55,7 @@ function RegisterPage() {
     };
 
     return (
-        <div className="py-12 md:py-24 flex justify-center items-center">
+        <div className="py-12 md:py-24 flex justify-center items-center w-full">
             <form
                 className="gap-8 flex justify-center items-center flex-col flex-grow"
                 onSubmit={handleSubmit}
