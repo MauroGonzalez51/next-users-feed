@@ -43,7 +43,7 @@ export function Post({ user }: { user: User }) {
             <div>
                 {/* Show the actual image */}
                 <Image
-                    width={641}
+                    width={950}
                     height={320}
                     src={imageURL}
                     alt="Image"
