@@ -1,5 +1,3 @@
-import { JSXElementConstructor, ReactElement } from "react";
-
 export interface User {
     username: string;
     description: string;
